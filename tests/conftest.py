@@ -31,13 +31,13 @@ def setup(request):
     yield
     driver.close()
 
-
+  """
 @pytest.mark.hookwrapper
 def pytest_runtest_makereport(item):
-    """
+  
     Extends the PyTest Plugin to take and embed screenshot in html report, whenever test fails.
     :param item:
-    """
+
     pytest_html = item.config.pluginmanager.getplugin('html')
     outcome = yield
     report = outcome.get_result()
@@ -57,3 +57,4 @@ def pytest_runtest_makereport(item):
 
 def _capture_screenshot(name):
     driver.get_screenshot_as_file(name)
+    """
